@@ -42,6 +42,8 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/sydne/Documents/Toil/*.cpp")
 set(OLD_GLOB
   "C:/Users/sydne/Documents/Toil/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+  "C:/Users/sydne/Documents/Toil/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Toil_autogen/EWIEGA46WW/moc_mainwindow.cpp"
+  "C:/Users/sydne/Documents/Toil/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Toil_autogen/mocs_compilation.cpp"
   "C:/Users/sydne/Documents/Toil/main.cpp"
   "C:/Users/sydne/Documents/Toil/mainwindow.cpp"
   )
@@ -62,6 +64,8 @@ endif()
 # _directory_contents at C:/Qt/6.7.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/sydne/Documents/Toil/*.h")
 set(OLD_GLOB
+  "C:/Users/sydne/Documents/Toil/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Toil_autogen/include/ui_mainwindow.h"
+  "C:/Users/sydne/Documents/Toil/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Toil_autogen/moc_predefs.h"
   "C:/Users/sydne/Documents/Toil/mainwindow.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

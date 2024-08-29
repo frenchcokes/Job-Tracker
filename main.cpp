@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include <QPushButton>
+
 #include <QLocale>
 #include <QTranslator>
 
@@ -18,6 +20,10 @@ int main(int argc, char *argv[])
         }
     }
     MainWindow w;
+
+    w.setLabelName("Spaghetti_Sauce");
+
     w.show();
+
     return a.exec();
 }
