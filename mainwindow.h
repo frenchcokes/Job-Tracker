@@ -20,9 +20,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void setLabelName(const QString &name);
+public slots:
 
-    QString name() const;
 
 private:
     Ui::MainWindow *ui;

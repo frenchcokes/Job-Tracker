@@ -13,14 +13,3 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-void MainWindow::setLabelName(const QString &name)
-{
-    qInfo() << "PRINTED LABEL";
-    ui->label->setText(name);
-}
-
-QString MainWindow::name() const
-{
-    return ui->label->text();
-}
