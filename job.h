@@ -31,6 +31,14 @@ public:
         this->datePosted = datePosted;
     }
 
+    operator QString() const
+    {
+        return "Title: " + jobTitle + ", Company Name: " + companyName
+                        + ", dateApplied: " + dateApplied.toString() + ", isCoverLetter: " + wasCoverLetter
+                        + ", isLogin: " + wasLogin + ", isTranscript: " + wasTranscript
+                        + ", datePosted: " + datePosted.toString();
+    }
+
     QString getJobTitle();
     QString getCompanyName();
 

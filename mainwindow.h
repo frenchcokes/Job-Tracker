@@ -21,6 +21,8 @@ public:
 private slots:
     void on_submitButton_clicked();
 
+    void on_datePosedCheckBox_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
 };

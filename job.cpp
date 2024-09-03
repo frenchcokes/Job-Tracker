@@ -19,10 +19,12 @@ QString Job::getWasCoverLetter()
 {
     return wasCoverLetter;
 }
+
 QString Job::getWasLogin()
 {
     return wasLogin;
 }
+
 QString Job::getWasTranscript()
 {
     return wasTranscript;

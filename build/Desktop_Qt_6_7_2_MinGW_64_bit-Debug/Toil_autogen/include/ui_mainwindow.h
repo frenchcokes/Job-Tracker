@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QHBoxLayout>
@@ -18,6 +19,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -50,6 +52,10 @@ public:
     QLabel *loginLabel;
     QComboBox *loginComboBox;
     QHBoxLayout *row_7;
+    QSpacerItem *horizontalSpacer;
+    QCheckBox *datePosedCheckBox;
+    QSpacerItem *horizontalSpacer_2;
+    QHBoxLayout *row_8;
     QLabel *datePostedLabel;
     QDateEdit *datePostedDateEdit;
     QPushButton *submitButton;
@@ -59,12 +65,13 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
+        MainWindow->setEnabled(true);
         MainWindow->resize(720, 540);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(200, 80, 311, 342));
+        verticalLayoutWidget->setGeometry(QRect(200, 80, 367, 342));
         add_Job = new QVBoxLayout(verticalLayoutWidget);
         add_Job->setObjectName("add_Job");
         add_Job->setContentsMargins(0, 0, 0, 0);
@@ -175,18 +182,42 @@ public:
 
         row_7 = new QHBoxLayout();
         row_7->setObjectName("row_7");
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        row_7->addItem(horizontalSpacer);
+
+        datePosedCheckBox = new QCheckBox(verticalLayoutWidget);
+        datePosedCheckBox->setObjectName("datePosedCheckBox");
+        datePosedCheckBox->setTristate(false);
+
+        row_7->addWidget(datePosedCheckBox);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        row_7->addItem(horizontalSpacer_2);
+
+        row_7->setStretch(0, 4);
+        row_7->setStretch(1, 1);
+        row_7->setStretch(2, 4);
+
+        add_Job->addLayout(row_7);
+
+        row_8 = new QHBoxLayout();
+        row_8->setObjectName("row_8");
         datePostedLabel = new QLabel(verticalLayoutWidget);
         datePostedLabel->setObjectName("datePostedLabel");
+        datePostedLabel->setEnabled(true);
 
-        row_7->addWidget(datePostedLabel);
+        row_8->addWidget(datePostedLabel);
 
         datePostedDateEdit = new QDateEdit(verticalLayoutWidget);
         datePostedDateEdit->setObjectName("datePostedDateEdit");
+        datePostedDateEdit->setEnabled(true);
 
-        row_7->addWidget(datePostedDateEdit);
+        row_8->addWidget(datePostedDateEdit);
 
 
-        add_Job->addLayout(row_7);
+        add_Job->addLayout(row_8);
 
         submitButton = new QPushButton(verticalLayoutWidget);
         submitButton->setObjectName("submitButton");
@@ -230,6 +261,7 @@ public:
         loginComboBox->setItemText(1, QCoreApplication::translate("MainWindow", "No", nullptr));
         loginComboBox->setItemText(2, QCoreApplication::translate("MainWindow", "N/A", nullptr));
 
+        datePosedCheckBox->setText(QCoreApplication::translate("MainWindow", "Include Date Posted?", nullptr));
         datePostedLabel->setText(QCoreApplication::translate("MainWindow", "Date Posted", nullptr));
         submitButton->setText(QCoreApplication::translate("MainWindow", "Submit", nullptr));
     } // retranslateUi

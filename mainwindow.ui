@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -19,7 +22,7 @@
      <rect>
       <x>200</x>
       <y>80</y>
-      <width>311</width>
+      <width>367</width>
       <height>342</height>
      </rect>
     </property>
@@ -176,16 +179,63 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="row_7">
+      <layout class="QHBoxLayout" name="row_7" stretch="4,1,4">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="datePosedCheckBox">
+         <property name="text">
+          <string>Include Date Posted?</string>
+         </property>
+         <property name="tristate">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="row_8" stretch="0,0">
        <item>
         <widget class="QLabel" name="datePostedLabel">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="text">
           <string>Date Posted</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QDateEdit" name="datePostedDateEdit"/>
+        <widget class="QDateEdit" name="datePostedDateEdit">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
