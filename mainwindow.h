@@ -23,6 +23,9 @@ public:
 public slots:
 
 
+private slots:
+    void on_submitButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -17,9 +17,9 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>90</y>
-      <width>164</width>
+      <x>200</x>
+      <y>80</y>
+      <width>311</width>
       <height>342</height>
      </rect>
     </property>
@@ -35,7 +35,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="row1">
        <item>
         <widget class="QLabel" name="jobTitleLabel">
          <property name="text">
@@ -49,7 +49,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QHBoxLayout" name="row2">
        <item>
         <widget class="QLabel" name="companyNameLabel">
          <property name="text">
@@ -63,7 +63,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <layout class="QHBoxLayout" name="row3">
        <item>
         <widget class="QLabel" name="dateAppliedLabel">
          <property name="text">
@@ -104,7 +104,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <layout class="QHBoxLayout" name="row4">
        <item>
         <widget class="QLabel" name="datePostedLabel">
          <property name="text">
