@@ -3,6 +3,9 @@
 
 #include "./ui_mainwindow.h"
 #include "QDebug"
+#include "QList"
+#include "QSettings"
+#include "QJsonArray"
 
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
@@ -19,6 +22,7 @@ MainWindow::~MainWindow()
 }
 
 bool isDatePostedEnabled = false;
+QList<Job> jobs;
 
 void MainWindow::on_submitButton_clicked()
 {
@@ -36,6 +40,8 @@ void MainWindow::on_submitButton_clicked()
 
     QDate datePosted = ui->datePostedDateEdit->date();
 
+    QString notes = ui->notesEdit->text();
+
     if(jobTitle != "" && companyName != "")
     {
         if(isDatePostedEnabled == false)
@@ -43,9 +49,21 @@ void MainWindow::on_submitButton_clicked()
             datePosted = QDate();
         }
 
-        Job newJob = Job(jobTitle, companyName, dateApplied, wasCoverLetter, wasLogin, wasTranscript, datePosted);
+        Job newJob = Job(jobTitle, companyName, dateApplied, wasCoverLetter, wasLogin, wasTranscript, datePosted, notes);
+        jobs.append(newJob);
 
-        qDebug() << QString(newJob);
+        //SAVE
+        QJsonArray jobData;
+        for (int i = 0; i < jobs.count(); i++)
+        {
+            jobData.append(jobs[i].getSaveData());
+        }
+        QSettings registry("HKEY_LOCAL_MACHINE");
+        registry.setValue("jobData", QVariant(jobData));
+
+
+        //QJsonArray loadedData = registry.value("jobData").toJsonArray();
+        //qDebug() << loadedData;
     }
 }
 

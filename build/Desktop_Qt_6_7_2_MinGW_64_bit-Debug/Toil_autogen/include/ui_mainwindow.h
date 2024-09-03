@@ -58,6 +58,9 @@ public:
     QHBoxLayout *row_8;
     QLabel *datePostedLabel;
     QDateEdit *datePostedDateEdit;
+    QHBoxLayout *row_9;
+    QLabel *notesLabel;
+    QLineEdit *notesEdit;
     QPushButton *submitButton;
     QStatusBar *statusbar;
 
@@ -219,6 +222,21 @@ public:
 
         add_Job->addLayout(row_8);
 
+        row_9 = new QHBoxLayout();
+        row_9->setObjectName("row_9");
+        notesLabel = new QLabel(verticalLayoutWidget);
+        notesLabel->setObjectName("notesLabel");
+
+        row_9->addWidget(notesLabel);
+
+        notesEdit = new QLineEdit(verticalLayoutWidget);
+        notesEdit->setObjectName("notesEdit");
+
+        row_9->addWidget(notesEdit);
+
+
+        add_Job->addLayout(row_9);
+
         submitButton = new QPushButton(verticalLayoutWidget);
         submitButton->setObjectName("submitButton");
 
@@ -263,6 +281,7 @@ public:
 
         datePosedCheckBox->setText(QCoreApplication::translate("MainWindow", "Include Date Posted?", nullptr));
         datePostedLabel->setText(QCoreApplication::translate("MainWindow", "Date Posted", nullptr));
+        notesLabel->setText(QCoreApplication::translate("MainWindow", "Notes", nullptr));
         submitButton->setText(QCoreApplication::translate("MainWindow", "Submit", nullptr));
     } // retranslateUi
 
