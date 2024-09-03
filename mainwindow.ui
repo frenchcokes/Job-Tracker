@@ -23,7 +23,7 @@
       <height>342</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="add_Job">
      <item>
       <widget class="QLabel" name="addJobLabel">
        <property name="text">
@@ -35,7 +35,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="row1">
+      <layout class="QHBoxLayout" name="row_1">
        <item>
         <widget class="QLabel" name="jobTitleLabel">
          <property name="text">
@@ -49,7 +49,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="row2">
+      <layout class="QHBoxLayout" name="row_2">
        <item>
         <widget class="QLabel" name="companyNameLabel">
          <property name="text">
@@ -63,7 +63,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="row3">
+      <layout class="QHBoxLayout" name="row_3">
        <item>
         <widget class="QLabel" name="dateAppliedLabel">
          <property name="text">
@@ -77,34 +77,106 @@
       </layout>
      </item>
      <item>
-      <widget class="QCheckBox" name="isCoverLetterCheckBox">
-       <property name="text">
-        <string>Cover Letter?</string>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="row_4">
+       <item>
+        <widget class="QLabel" name="coverLetterLabel">
+         <property name="text">
+          <string>Cover Letter?</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="coverLetterComboBox">
+         <property name="currentIndex">
+          <number>2</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>No</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>N/A</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QCheckBox" name="isTranscriptCheckBox">
-       <property name="text">
-        <string>Transcript?</string>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="row_5">
+       <item>
+        <widget class="QLabel" name="transcriptLabel">
+         <property name="text">
+          <string>Transcript?</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="transcriptComboBox">
+         <property name="currentIndex">
+          <number>2</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>No</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>N/A</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QCheckBox" name="isLoginCheckBox">
-       <property name="text">
-        <string>Login?</string>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-       <property name="tristate">
-        <bool>false</bool>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="row_6">
+       <item>
+        <widget class="QLabel" name="loginLabel">
+         <property name="text">
+          <string>Login?</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="loginComboBox">
+         <property name="currentIndex">
+          <number>2</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>No</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>N/A</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="row4">
+      <layout class="QHBoxLayout" name="row_7">
        <item>
         <widget class="QLabel" name="datePostedLabel">
          <property name="text">

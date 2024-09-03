@@ -22,18 +22,18 @@ void MainWindow::on_submitButton_clicked()
 
     QDate dateApplied = ui->dateAppliedDateEdit->date();
 
-    bool isCoverLetter = ui->isCoverLetterCheckBox->isChecked();
+    QString wasCoverLetter = ui->coverLetterComboBox->currentText();
 
-    bool isLogin = ui->isLoginCheckBox->isChecked();
+    QString wasLogin = ui->loginComboBox->currentText();
 
-    bool isTranscript = ui->isTranscriptCheckBox->isChecked();
+    QString wasTranscript = ui->transcriptComboBox->currentText();
 
     QDate datePosted = ui->datePostedDateEdit->date();
 
     if(jobTitle != "" && companyName != "") {
         QString dataOutput = "Title: " + jobTitle + ", Company Name: " + companyName
-             + ", dateApplied: " + dateApplied.toString() + ", isCoverLetter: " + QString::number(isCoverLetter)
-                 + ", isLogin: " + QString::number(isLogin) + ", isTranscript: " + QString::number(isTranscript)
+             + ", dateApplied: " + dateApplied.toString() + ", isCoverLetter: " + wasCoverLetter
+                 + ", isLogin: " + wasLogin + ", isTranscript: " + wasTranscript
                      + ", datePosted: " + datePosted.toString();
 
         qDebug() << dataOutput;

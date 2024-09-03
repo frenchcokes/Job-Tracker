@@ -268,6 +268,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/sydne/Documents/Toil/job.h",
+			"MU",
+			"EWIEGA46WW/moc_job.cpp",
+			null
+		],
+		[
 			"C:/Users/sydne/Documents/Toil/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -345,6 +351,7 @@
 	"SETTINGS_FILE" : "C:/Users/sydne/Documents/Toil/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/Toil_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "C:/Users/sydne/Documents/Toil/job.cpp", "MU", null ],
 		[ "C:/Users/sydne/Documents/Toil/main.cpp", "MU", null ],
 		[ "C:/Users/sydne/Documents/Toil/mainwindow.cpp", "MU", null ]
 	],

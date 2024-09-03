@@ -11,7 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -29,21 +29,27 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
+    QVBoxLayout *add_Job;
     QLabel *addJobLabel;
-    QHBoxLayout *row1;
+    QHBoxLayout *row_1;
     QLabel *jobTitleLabel;
     QLineEdit *jobTitleLineEdit;
-    QHBoxLayout *row2;
+    QHBoxLayout *row_2;
     QLabel *companyNameLabel;
     QLineEdit *companyNameLineEdit;
-    QHBoxLayout *row3;
+    QHBoxLayout *row_3;
     QLabel *dateAppliedLabel;
     QDateEdit *dateAppliedDateEdit;
-    QCheckBox *isCoverLetterCheckBox;
-    QCheckBox *isTranscriptCheckBox;
-    QCheckBox *isLoginCheckBox;
-    QHBoxLayout *row4;
+    QHBoxLayout *row_4;
+    QLabel *coverLetterLabel;
+    QComboBox *coverLetterComboBox;
+    QHBoxLayout *row_5;
+    QLabel *transcriptLabel;
+    QComboBox *transcriptComboBox;
+    QHBoxLayout *row_6;
+    QLabel *loginLabel;
+    QComboBox *loginComboBox;
+    QHBoxLayout *row_7;
     QLabel *datePostedLabel;
     QDateEdit *datePostedDateEdit;
     QPushButton *submitButton;
@@ -59,96 +65,133 @@ public:
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
         verticalLayoutWidget->setGeometry(QRect(200, 80, 311, 342));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        add_Job = new QVBoxLayout(verticalLayoutWidget);
+        add_Job->setObjectName("add_Job");
+        add_Job->setContentsMargins(0, 0, 0, 0);
         addJobLabel = new QLabel(verticalLayoutWidget);
         addJobLabel->setObjectName("addJobLabel");
         addJobLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        verticalLayout->addWidget(addJobLabel);
+        add_Job->addWidget(addJobLabel);
 
-        row1 = new QHBoxLayout();
-        row1->setObjectName("row1");
+        row_1 = new QHBoxLayout();
+        row_1->setObjectName("row_1");
         jobTitleLabel = new QLabel(verticalLayoutWidget);
         jobTitleLabel->setObjectName("jobTitleLabel");
 
-        row1->addWidget(jobTitleLabel);
+        row_1->addWidget(jobTitleLabel);
 
         jobTitleLineEdit = new QLineEdit(verticalLayoutWidget);
         jobTitleLineEdit->setObjectName("jobTitleLineEdit");
 
-        row1->addWidget(jobTitleLineEdit);
+        row_1->addWidget(jobTitleLineEdit);
 
 
-        verticalLayout->addLayout(row1);
+        add_Job->addLayout(row_1);
 
-        row2 = new QHBoxLayout();
-        row2->setObjectName("row2");
+        row_2 = new QHBoxLayout();
+        row_2->setObjectName("row_2");
         companyNameLabel = new QLabel(verticalLayoutWidget);
         companyNameLabel->setObjectName("companyNameLabel");
 
-        row2->addWidget(companyNameLabel);
+        row_2->addWidget(companyNameLabel);
 
         companyNameLineEdit = new QLineEdit(verticalLayoutWidget);
         companyNameLineEdit->setObjectName("companyNameLineEdit");
 
-        row2->addWidget(companyNameLineEdit);
+        row_2->addWidget(companyNameLineEdit);
 
 
-        verticalLayout->addLayout(row2);
+        add_Job->addLayout(row_2);
 
-        row3 = new QHBoxLayout();
-        row3->setObjectName("row3");
+        row_3 = new QHBoxLayout();
+        row_3->setObjectName("row_3");
         dateAppliedLabel = new QLabel(verticalLayoutWidget);
         dateAppliedLabel->setObjectName("dateAppliedLabel");
 
-        row3->addWidget(dateAppliedLabel);
+        row_3->addWidget(dateAppliedLabel);
 
         dateAppliedDateEdit = new QDateEdit(verticalLayoutWidget);
         dateAppliedDateEdit->setObjectName("dateAppliedDateEdit");
 
-        row3->addWidget(dateAppliedDateEdit);
+        row_3->addWidget(dateAppliedDateEdit);
 
 
-        verticalLayout->addLayout(row3);
+        add_Job->addLayout(row_3);
 
-        isCoverLetterCheckBox = new QCheckBox(verticalLayoutWidget);
-        isCoverLetterCheckBox->setObjectName("isCoverLetterCheckBox");
+        row_4 = new QHBoxLayout();
+        row_4->setObjectName("row_4");
+        coverLetterLabel = new QLabel(verticalLayoutWidget);
+        coverLetterLabel->setObjectName("coverLetterLabel");
 
-        verticalLayout->addWidget(isCoverLetterCheckBox);
+        row_4->addWidget(coverLetterLabel);
 
-        isTranscriptCheckBox = new QCheckBox(verticalLayoutWidget);
-        isTranscriptCheckBox->setObjectName("isTranscriptCheckBox");
+        coverLetterComboBox = new QComboBox(verticalLayoutWidget);
+        coverLetterComboBox->addItem(QString());
+        coverLetterComboBox->addItem(QString());
+        coverLetterComboBox->addItem(QString());
+        coverLetterComboBox->setObjectName("coverLetterComboBox");
 
-        verticalLayout->addWidget(isTranscriptCheckBox);
+        row_4->addWidget(coverLetterComboBox);
 
-        isLoginCheckBox = new QCheckBox(verticalLayoutWidget);
-        isLoginCheckBox->setObjectName("isLoginCheckBox");
-        isLoginCheckBox->setChecked(false);
-        isLoginCheckBox->setTristate(false);
 
-        verticalLayout->addWidget(isLoginCheckBox);
+        add_Job->addLayout(row_4);
 
-        row4 = new QHBoxLayout();
-        row4->setObjectName("row4");
+        row_5 = new QHBoxLayout();
+        row_5->setObjectName("row_5");
+        transcriptLabel = new QLabel(verticalLayoutWidget);
+        transcriptLabel->setObjectName("transcriptLabel");
+
+        row_5->addWidget(transcriptLabel);
+
+        transcriptComboBox = new QComboBox(verticalLayoutWidget);
+        transcriptComboBox->addItem(QString());
+        transcriptComboBox->addItem(QString());
+        transcriptComboBox->addItem(QString());
+        transcriptComboBox->setObjectName("transcriptComboBox");
+
+        row_5->addWidget(transcriptComboBox);
+
+
+        add_Job->addLayout(row_5);
+
+        row_6 = new QHBoxLayout();
+        row_6->setObjectName("row_6");
+        loginLabel = new QLabel(verticalLayoutWidget);
+        loginLabel->setObjectName("loginLabel");
+
+        row_6->addWidget(loginLabel);
+
+        loginComboBox = new QComboBox(verticalLayoutWidget);
+        loginComboBox->addItem(QString());
+        loginComboBox->addItem(QString());
+        loginComboBox->addItem(QString());
+        loginComboBox->setObjectName("loginComboBox");
+
+        row_6->addWidget(loginComboBox);
+
+
+        add_Job->addLayout(row_6);
+
+        row_7 = new QHBoxLayout();
+        row_7->setObjectName("row_7");
         datePostedLabel = new QLabel(verticalLayoutWidget);
         datePostedLabel->setObjectName("datePostedLabel");
 
-        row4->addWidget(datePostedLabel);
+        row_7->addWidget(datePostedLabel);
 
         datePostedDateEdit = new QDateEdit(verticalLayoutWidget);
         datePostedDateEdit->setObjectName("datePostedDateEdit");
 
-        row4->addWidget(datePostedDateEdit);
+        row_7->addWidget(datePostedDateEdit);
 
 
-        verticalLayout->addLayout(row4);
+        add_Job->addLayout(row_7);
 
         submitButton = new QPushButton(verticalLayoutWidget);
         submitButton->setObjectName("submitButton");
 
-        verticalLayout->addWidget(submitButton);
+        add_Job->addWidget(submitButton);
 
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
@@ -156,6 +199,11 @@ public:
         MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
+
+        coverLetterComboBox->setCurrentIndex(2);
+        transcriptComboBox->setCurrentIndex(2);
+        loginComboBox->setCurrentIndex(2);
+
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -167,9 +215,21 @@ public:
         jobTitleLabel->setText(QCoreApplication::translate("MainWindow", "Job Title", nullptr));
         companyNameLabel->setText(QCoreApplication::translate("MainWindow", "Company", nullptr));
         dateAppliedLabel->setText(QCoreApplication::translate("MainWindow", "Date Applied", nullptr));
-        isCoverLetterCheckBox->setText(QCoreApplication::translate("MainWindow", "Cover Letter?", nullptr));
-        isTranscriptCheckBox->setText(QCoreApplication::translate("MainWindow", "Transcript?", nullptr));
-        isLoginCheckBox->setText(QCoreApplication::translate("MainWindow", "Login?", nullptr));
+        coverLetterLabel->setText(QCoreApplication::translate("MainWindow", "Cover Letter?", nullptr));
+        coverLetterComboBox->setItemText(0, QCoreApplication::translate("MainWindow", "Yes", nullptr));
+        coverLetterComboBox->setItemText(1, QCoreApplication::translate("MainWindow", "No", nullptr));
+        coverLetterComboBox->setItemText(2, QCoreApplication::translate("MainWindow", "N/A", nullptr));
+
+        transcriptLabel->setText(QCoreApplication::translate("MainWindow", "Transcript?", nullptr));
+        transcriptComboBox->setItemText(0, QCoreApplication::translate("MainWindow", "Yes", nullptr));
+        transcriptComboBox->setItemText(1, QCoreApplication::translate("MainWindow", "No", nullptr));
+        transcriptComboBox->setItemText(2, QCoreApplication::translate("MainWindow", "N/A", nullptr));
+
+        loginLabel->setText(QCoreApplication::translate("MainWindow", "Login?", nullptr));
+        loginComboBox->setItemText(0, QCoreApplication::translate("MainWindow", "Yes", nullptr));
+        loginComboBox->setItemText(1, QCoreApplication::translate("MainWindow", "No", nullptr));
+        loginComboBox->setItemText(2, QCoreApplication::translate("MainWindow", "N/A", nullptr));
+
         datePostedLabel->setText(QCoreApplication::translate("MainWindow", "Date Posted", nullptr));
         submitButton->setText(QCoreApplication::translate("MainWindow", "Submit", nullptr));
     } // retranslateUi

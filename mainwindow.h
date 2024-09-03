@@ -3,8 +3,6 @@
 
 
 #include <QMainWindow>
-#include <QLabel>
-#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,9 +17,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
-public slots:
-
 
 private slots:
     void on_submitButton_clicked();
