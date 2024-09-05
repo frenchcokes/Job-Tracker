@@ -23,6 +23,10 @@ private slots:
 
     void on_datePosedCheckBox_toggled(bool checked);
 
+    void on_jobLoadPushButton_clicked();
+
+    void on_addJobPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

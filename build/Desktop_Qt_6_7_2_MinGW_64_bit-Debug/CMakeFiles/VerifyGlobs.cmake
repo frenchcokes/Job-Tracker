@@ -169,6 +169,7 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/sydne/Documents/Toil/*.ui")
 set(OLD_GLOB
   "C:/Users/sydne/Documents/Toil/mainwindow.ui"
+  "C:/Users/sydne/Documents/Toil/mainwindow_copy.ui"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

@@ -105,3 +105,27 @@ void MainWindow::on_datePosedCheckBox_toggled(bool checked)
     ui->datePostedLabel->setVisible(isDatePostedEnabled);
 }
 
+
+
+void MainWindow::on_jobLoadPushButton_clicked()
+{
+    int index = ui->jobLoadSpinBox->value();
+    if(index <= (jobs.count() - 1))
+    {
+        ui->stackedWidget->setCurrentIndex(1);
+        Job loadJob = jobs[index];
+
+        ui->jobTitleViewLineEdit->setText(loadJob.getJobTitle());
+        ui->companyViewLineEdit->setText(loadJob.getCompanyName());
+        ui->dateOfApplicationViewLineEdit->setText(loadJob.getDateApplied().toString());
+        ui->otherViewLineEdit->setText("Cover Letter: " + loadJob.getWasCoverLetter() + " Transcript: " + loadJob.getWasTranscript() + " Date Posted: " + loadJob.getDatePosted().toString() + " Login: " + loadJob.getWasLogin());
+        ui->notesViewLineEdit->setText(loadJob.getNotes());
+    }
+}
+
+
+void MainWindow::on_addJobPushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
