@@ -7,12 +7,39 @@
 #include "QSettings"
 #include "QJsonArray"
 
+bool isDatePostedEnabled = false;
+QList<Job> jobs;
+
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    //JOB ADD SETUP
+
+    QSettings registry("HKEY_LOCAL_MACHINE");
+    if(registry.contains("jobData") == true)
+    {
+        QJsonArray jobData = registry.value("jobData").toJsonArray();
+        for (int i = 0; i < jobData.size(); i++)
+        {
+            Job newJob = Job();
+            newJob.loadSaveData(jobData[i].toObject());
+            jobs.append(newJob);
+
+            QString jobDisplayText = "";
+            for (int i = 0; i < jobs.count(); i++)
+            {
+                jobDisplayText = jobDisplayText + "[" + QString::number(i) + "] " + jobs[i].getJobTitle() + ", " + jobs[i].getCompanyName() + ", (" + jobs[i].getDateApplied().toString() + ")\n";
+            }
+            ui->jobDisplayPlainTextEdit->setPlainText(jobDisplayText);
+        }
+
+    }
+
+    ui->dateAppliedDateEdit->setDate(QDateTime::currentDateTime().date());
+    ui->datePostedDateEdit->setDate(QDateTime::currentDateTime().date());
     on_datePosedCheckBox_toggled(false);
 }
 
@@ -20,9 +47,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-bool isDatePostedEnabled = false;
-QList<Job> jobs;
 
 void MainWindow::on_submitButton_clicked()
 {
@@ -61,6 +85,13 @@ void MainWindow::on_submitButton_clicked()
         QSettings registry("HKEY_LOCAL_MACHINE");
         registry.setValue("jobData", QVariant(jobData));
 
+        //UPDATE JOBS DISPLAY
+        QString jobDisplayText = "";
+        for (int i = 0; i < jobs.count(); i++)
+        {
+            jobDisplayText = jobDisplayText + "[" + QString::number(i) + "] " + jobs[i].getJobTitle() + ", " + jobs[i].getCompanyName() + ", (" + jobs[i].getDateApplied().toString() + ")\n";
+        }
+        ui->jobDisplayPlainTextEdit->setPlainText(jobDisplayText);
 
         //QJsonArray loadedData = registry.value("jobData").toJsonArray();
         //qDebug() << loadedData;

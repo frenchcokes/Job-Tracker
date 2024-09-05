@@ -18,6 +18,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
@@ -62,6 +63,7 @@ public:
     QLabel *notesLabel;
     QLineEdit *notesEdit;
     QPushButton *submitButton;
+    QPlainTextEdit *jobDisplayPlainTextEdit;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -74,7 +76,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(200, 80, 367, 342));
+        verticalLayoutWidget->setGeometry(QRect(300, 70, 367, 342));
         add_Job = new QVBoxLayout(verticalLayoutWidget);
         add_Job->setObjectName("add_Job");
         add_Job->setContentsMargins(0, 0, 0, 0);
@@ -242,6 +244,10 @@ public:
 
         add_Job->addWidget(submitButton);
 
+        jobDisplayPlainTextEdit = new QPlainTextEdit(centralwidget);
+        jobDisplayPlainTextEdit->setObjectName("jobDisplayPlainTextEdit");
+        jobDisplayPlainTextEdit->setGeometry(QRect(30, 70, 250, 350));
+        jobDisplayPlainTextEdit->setReadOnly(true);
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -283,6 +289,7 @@ public:
         datePostedLabel->setText(QCoreApplication::translate("MainWindow", "Date Posted", nullptr));
         notesLabel->setText(QCoreApplication::translate("MainWindow", "Notes", nullptr));
         submitButton->setText(QCoreApplication::translate("MainWindow", "Submit", nullptr));
+        jobDisplayPlainTextEdit->setPlainText(QString());
     } // retranslateUi
 
 };
