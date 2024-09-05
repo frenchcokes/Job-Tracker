@@ -115,11 +115,11 @@ void MainWindow::on_jobLoadPushButton_clicked()
         ui->stackedWidget->setCurrentIndex(1);
         Job loadJob = jobs[index];
 
-        ui->jobTitleViewLineEdit->setText(loadJob.getJobTitle());
-        ui->companyViewLineEdit->setText(loadJob.getCompanyName());
-        ui->dateOfApplicationViewLineEdit->setText(loadJob.getDateApplied().toString());
-        ui->otherViewLineEdit->setText("Cover Letter: " + loadJob.getWasCoverLetter() + " Transcript: " + loadJob.getWasTranscript() + " Date Posted: " + loadJob.getDatePosted().toString() + " Login: " + loadJob.getWasLogin());
-        ui->notesViewLineEdit->setText(loadJob.getNotes());
+        ui->JobTitleViewLabel->setText(loadJob.getJobTitle());
+        ui->companyNameViewLabel->setText(loadJob.getCompanyName());
+        ui->dateOfApplicationViewLabel->setText(loadJob.getDateApplied().toString());
+        ui->otherViewLabel->setText("Cover Letter: " + loadJob.getWasCoverLetter() + " Transcript: " + loadJob.getWasTranscript() + " Date Posted: " + loadJob.getDatePosted().toString() + " Login: " + loadJob.getWasLogin());
+        ui->notesViewLabel->setText(loadJob.getNotes());
     }
 }
 

@@ -39,36 +39,23 @@
       <x>270</x>
       <y>10</y>
       <width>441</width>
-      <height>501</height>
+      <height>511</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>40</y>
         <width>441</width>
-        <height>501</height>
+        <height>431</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="add_Job">
-       <item>
-        <widget class="QLabel" name="addJobLabel">
-         <property name="text">
-          <string>Add Job</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::TextFormat::MarkdownText</enum>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
        <item>
         <layout class="QHBoxLayout" name="row_1">
          <item>
@@ -285,69 +272,151 @@
          </item>
         </layout>
        </item>
-       <item>
-        <widget class="QPushButton" name="submitButton">
-         <property name="text">
-          <string>Submit</string>
-         </property>
-        </widget>
-       </item>
       </layout>
+     </widget>
+     <widget class="QLabel" name="addJobLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>1</y>
+        <width>439</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Add Job</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::MarkdownText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="submitButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>480</y>
+        <width>439</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="page_1">
-     <widget class="QWidget" name="verticalLayoutWidget_2">
+     <widget class="QLabel" name="JobTitleViewLabel">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
         <width>441</width>
-        <height>501</height>
+        <height>41</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="view_Job">
-       <item>
-        <widget class="QLineEdit" name="jobTitleViewLineEdit">
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="companyViewLineEdit">
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="dateOfApplicationViewLineEdit">
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="otherViewLineEdit">
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="notesViewLineEdit">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Software Engineer Coop Summer</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="companyNameViewLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>40</y>
+        <width>441</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dateOfApplicationViewLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>70</y>
+        <width>441</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="otherViewLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>441</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="notesViewLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>130</y>
+        <width>441</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
      </widget>
     </widget>
    </widget>

@@ -38,7 +38,6 @@ public:
     QWidget *page_0;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *add_Job;
-    QLabel *addJobLabel;
     QHBoxLayout *row_1;
     QLabel *jobTitleLabel;
     QLineEdit *jobTitleLineEdit;
@@ -67,15 +66,14 @@ public:
     QHBoxLayout *row_9;
     QLabel *notesLabel;
     QLineEdit *notesEdit;
+    QLabel *addJobLabel;
     QPushButton *submitButton;
     QWidget *page_1;
-    QWidget *verticalLayoutWidget_2;
-    QVBoxLayout *view_Job;
-    QLineEdit *jobTitleViewLineEdit;
-    QLineEdit *companyViewLineEdit;
-    QLineEdit *dateOfApplicationViewLineEdit;
-    QLineEdit *otherViewLineEdit;
-    QLineEdit *notesViewLineEdit;
+    QLabel *JobTitleViewLabel;
+    QLabel *companyNameViewLabel;
+    QLabel *dateOfApplicationViewLabel;
+    QLabel *otherViewLabel;
+    QLabel *notesViewLabel;
     QSpinBox *jobLoadSpinBox;
     QPushButton *jobLoadPushButton;
     QPushButton *addJobPushButton;
@@ -95,21 +93,15 @@ public:
         jobDisplayPlainTextEdit->setReadOnly(true);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(270, 10, 441, 501));
+        stackedWidget->setGeometry(QRect(270, 10, 441, 511));
         page_0 = new QWidget();
         page_0->setObjectName("page_0");
         verticalLayoutWidget = new QWidget(page_0);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(0, 0, 441, 501));
+        verticalLayoutWidget->setGeometry(QRect(0, 40, 441, 431));
         add_Job = new QVBoxLayout(verticalLayoutWidget);
         add_Job->setObjectName("add_Job");
         add_Job->setContentsMargins(0, 0, 0, 0);
-        addJobLabel = new QLabel(verticalLayoutWidget);
-        addJobLabel->setObjectName("addJobLabel");
-        addJobLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        add_Job->addWidget(addJobLabel);
-
         row_1 = new QHBoxLayout();
         row_1->setObjectName("row_1");
         jobTitleLabel = new QLabel(verticalLayoutWidget);
@@ -263,51 +255,53 @@ public:
 
         add_Job->addLayout(row_9);
 
-        submitButton = new QPushButton(verticalLayoutWidget);
+        addJobLabel = new QLabel(page_0);
+        addJobLabel->setObjectName("addJobLabel");
+        addJobLabel->setGeometry(QRect(0, 1, 439, 41));
+        QFont font;
+        font.setPointSize(20);
+        addJobLabel->setFont(font);
+        addJobLabel->setTextFormat(Qt::TextFormat::MarkdownText);
+        addJobLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        submitButton = new QPushButton(page_0);
         submitButton->setObjectName("submitButton");
-
-        add_Job->addWidget(submitButton);
-
+        submitButton->setGeometry(QRect(0, 480, 439, 24));
         stackedWidget->addWidget(page_0);
         page_1 = new QWidget();
         page_1->setObjectName("page_1");
-        verticalLayoutWidget_2 = new QWidget(page_1);
-        verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
-        verticalLayoutWidget_2->setGeometry(QRect(0, 0, 441, 501));
-        view_Job = new QVBoxLayout(verticalLayoutWidget_2);
-        view_Job->setObjectName("view_Job");
-        view_Job->setContentsMargins(0, 0, 0, 0);
-        jobTitleViewLineEdit = new QLineEdit(verticalLayoutWidget_2);
-        jobTitleViewLineEdit->setObjectName("jobTitleViewLineEdit");
-        jobTitleViewLineEdit->setReadOnly(true);
-
-        view_Job->addWidget(jobTitleViewLineEdit);
-
-        companyViewLineEdit = new QLineEdit(verticalLayoutWidget_2);
-        companyViewLineEdit->setObjectName("companyViewLineEdit");
-        companyViewLineEdit->setReadOnly(true);
-
-        view_Job->addWidget(companyViewLineEdit);
-
-        dateOfApplicationViewLineEdit = new QLineEdit(verticalLayoutWidget_2);
-        dateOfApplicationViewLineEdit->setObjectName("dateOfApplicationViewLineEdit");
-        dateOfApplicationViewLineEdit->setReadOnly(true);
-
-        view_Job->addWidget(dateOfApplicationViewLineEdit);
-
-        otherViewLineEdit = new QLineEdit(verticalLayoutWidget_2);
-        otherViewLineEdit->setObjectName("otherViewLineEdit");
-        otherViewLineEdit->setAlignment(Qt::AlignmentFlag::AlignCenter);
-        otherViewLineEdit->setReadOnly(true);
-
-        view_Job->addWidget(otherViewLineEdit);
-
-        notesViewLineEdit = new QLineEdit(verticalLayoutWidget_2);
-        notesViewLineEdit->setObjectName("notesViewLineEdit");
-        notesViewLineEdit->setReadOnly(true);
-
-        view_Job->addWidget(notesViewLineEdit);
-
+        JobTitleViewLabel = new QLabel(page_1);
+        JobTitleViewLabel->setObjectName("JobTitleViewLabel");
+        JobTitleViewLabel->setGeometry(QRect(0, 0, 441, 41));
+        QFont font1;
+        font1.setPointSize(18);
+        JobTitleViewLabel->setFont(font1);
+        JobTitleViewLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        companyNameViewLabel = new QLabel(page_1);
+        companyNameViewLabel->setObjectName("companyNameViewLabel");
+        companyNameViewLabel->setGeometry(QRect(0, 40, 441, 31));
+        QFont font2;
+        font2.setPointSize(17);
+        companyNameViewLabel->setFont(font2);
+        companyNameViewLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        dateOfApplicationViewLabel = new QLabel(page_1);
+        dateOfApplicationViewLabel->setObjectName("dateOfApplicationViewLabel");
+        dateOfApplicationViewLabel->setGeometry(QRect(0, 70, 441, 31));
+        QFont font3;
+        font3.setPointSize(16);
+        dateOfApplicationViewLabel->setFont(font3);
+        dateOfApplicationViewLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        otherViewLabel = new QLabel(page_1);
+        otherViewLabel->setObjectName("otherViewLabel");
+        otherViewLabel->setGeometry(QRect(0, 100, 441, 31));
+        QFont font4;
+        font4.setPointSize(12);
+        otherViewLabel->setFont(font4);
+        otherViewLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        notesViewLabel = new QLabel(page_1);
+        notesViewLabel->setObjectName("notesViewLabel");
+        notesViewLabel->setGeometry(QRect(0, 130, 441, 31));
+        notesViewLabel->setFont(font4);
+        notesViewLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
         stackedWidget->addWidget(page_1);
         jobLoadSpinBox = new QSpinBox(centralwidget);
         jobLoadSpinBox->setObjectName("jobLoadSpinBox");
@@ -338,7 +332,6 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         jobDisplayPlainTextEdit->setPlainText(QString());
-        addJobLabel->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));
         jobTitleLabel->setText(QCoreApplication::translate("MainWindow", "Job Title", nullptr));
         companyNameLabel->setText(QCoreApplication::translate("MainWindow", "Company", nullptr));
         dateAppliedLabel->setText(QCoreApplication::translate("MainWindow", "Date Applied", nullptr));
@@ -360,8 +353,13 @@ public:
         datePosedCheckBox->setText(QCoreApplication::translate("MainWindow", "Include Date Posted?", nullptr));
         datePostedLabel->setText(QCoreApplication::translate("MainWindow", "Date Posted", nullptr));
         notesLabel->setText(QCoreApplication::translate("MainWindow", "Notes", nullptr));
+        addJobLabel->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));
         submitButton->setText(QCoreApplication::translate("MainWindow", "Submit", nullptr));
-        notesViewLineEdit->setText(QString());
+        JobTitleViewLabel->setText(QCoreApplication::translate("MainWindow", "Software Engineer Coop Summer", nullptr));
+        companyNameViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        dateOfApplicationViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        otherViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        notesViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         jobLoadPushButton->setText(QCoreApplication::translate("MainWindow", "Load Job", nullptr));
         addJobPushButton->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));
     } // retranslateUi
