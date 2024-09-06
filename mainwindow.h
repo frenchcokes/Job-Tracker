@@ -3,6 +3,7 @@
 
 
 #include <QMainWindow>
+#include "Job.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,7 +22,7 @@ public:
 private slots:
     void on_submitButton_clicked();
 
-    void on_datePosedCheckBox_toggled(bool checked);
+    void on_datePostedCheckBox_toggled(bool checked);
 
     void on_jobLoadPushButton_clicked();
 
@@ -29,5 +30,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    void displayJobs(QList<Job> jobList);
+    void startup();
+    QList<Job> loadJobs();
+    void saveJobs(QList<Job> jobList);
 };
 #endif // MAINWINDOW_H

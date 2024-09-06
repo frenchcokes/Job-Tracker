@@ -38,7 +38,7 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "MainWindow",
     "on_submitButton_clicked",
     "",
-    "on_datePosedCheckBox_toggled",
+    "on_datePostedCheckBox_toggled",
     "checked",
     "on_jobLoadPushButton_clicked",
     "on_addJobPushButton_clicked"
@@ -87,7 +87,7 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
         // method 'on_submitButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_datePosedCheckBox_toggled'
+        // method 'on_datePostedCheckBox_toggled'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'on_jobLoadPushButton_clicked'
@@ -105,7 +105,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->on_submitButton_clicked(); break;
-        case 1: _t->on_datePosedCheckBox_toggled((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 1: _t->on_datePostedCheckBox_toggled((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
         case 2: _t->on_jobLoadPushButton_clicked(); break;
         case 3: _t->on_addJobPushButton_clicked(); break;
         default: ;
