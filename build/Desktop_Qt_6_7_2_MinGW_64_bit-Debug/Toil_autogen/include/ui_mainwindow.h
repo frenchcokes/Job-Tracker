@@ -20,6 +20,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
@@ -78,6 +79,23 @@ public:
     QPushButton *addEventViewPushButton;
     QPushButton *editJobDetailsPushButton;
     QPushButton *deleteJobPushButton;
+    QWidget *page_2;
+    QLabel *addEventLabel;
+    QWidget *verticalLayoutWidget_2;
+    QVBoxLayout *verticalLayout;
+    QDateEdit *eventDateEdit;
+    QRadioButton *event0RadioButton;
+    QRadioButton *event1RadioButton;
+    QRadioButton *event2RadioButton;
+    QRadioButton *event3RadioButton;
+    QRadioButton *event4RadioButton;
+    QRadioButton *event5RadioButton;
+    QRadioButton *event6RadioButton;
+    QRadioButton *event7RadioButton;
+    QRadioButton *event8RadioButton;
+    QPlainTextEdit *eventOtherTextEdit;
+    QPushButton *addEventPushButton;
+    QPushButton *addEventBackPushButton;
     QSpinBox *jobLoadSpinBox;
     QPushButton *jobLoadPushButton;
     QPushButton *addJobPushButton;
@@ -320,6 +338,82 @@ public:
         deleteJobPushButton->setObjectName("deleteJobPushButton");
         deleteJobPushButton->setGeometry(QRect(10, 480, 101, 24));
         stackedWidget->addWidget(page_1);
+        page_2 = new QWidget();
+        page_2->setObjectName("page_2");
+        addEventLabel = new QLabel(page_2);
+        addEventLabel->setObjectName("addEventLabel");
+        addEventLabel->setGeometry(QRect(0, 0, 439, 41));
+        addEventLabel->setFont(font);
+        addEventLabel->setTextFormat(Qt::TextFormat::MarkdownText);
+        addEventLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        verticalLayoutWidget_2 = new QWidget(page_2);
+        verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
+        verticalLayoutWidget_2->setGeometry(QRect(0, 40, 441, 431));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget_2);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        eventDateEdit = new QDateEdit(verticalLayoutWidget_2);
+        eventDateEdit->setObjectName("eventDateEdit");
+
+        verticalLayout->addWidget(eventDateEdit);
+
+        event0RadioButton = new QRadioButton(verticalLayoutWidget_2);
+        event0RadioButton->setObjectName("event0RadioButton");
+
+        verticalLayout->addWidget(event0RadioButton);
+
+        event1RadioButton = new QRadioButton(verticalLayoutWidget_2);
+        event1RadioButton->setObjectName("event1RadioButton");
+
+        verticalLayout->addWidget(event1RadioButton);
+
+        event2RadioButton = new QRadioButton(verticalLayoutWidget_2);
+        event2RadioButton->setObjectName("event2RadioButton");
+
+        verticalLayout->addWidget(event2RadioButton);
+
+        event3RadioButton = new QRadioButton(verticalLayoutWidget_2);
+        event3RadioButton->setObjectName("event3RadioButton");
+
+        verticalLayout->addWidget(event3RadioButton);
+
+        event4RadioButton = new QRadioButton(verticalLayoutWidget_2);
+        event4RadioButton->setObjectName("event4RadioButton");
+
+        verticalLayout->addWidget(event4RadioButton);
+
+        event5RadioButton = new QRadioButton(verticalLayoutWidget_2);
+        event5RadioButton->setObjectName("event5RadioButton");
+
+        verticalLayout->addWidget(event5RadioButton);
+
+        event6RadioButton = new QRadioButton(verticalLayoutWidget_2);
+        event6RadioButton->setObjectName("event6RadioButton");
+
+        verticalLayout->addWidget(event6RadioButton);
+
+        event7RadioButton = new QRadioButton(verticalLayoutWidget_2);
+        event7RadioButton->setObjectName("event7RadioButton");
+
+        verticalLayout->addWidget(event7RadioButton);
+
+        event8RadioButton = new QRadioButton(verticalLayoutWidget_2);
+        event8RadioButton->setObjectName("event8RadioButton");
+
+        verticalLayout->addWidget(event8RadioButton);
+
+        eventOtherTextEdit = new QPlainTextEdit(verticalLayoutWidget_2);
+        eventOtherTextEdit->setObjectName("eventOtherTextEdit");
+
+        verticalLayout->addWidget(eventOtherTextEdit);
+
+        addEventPushButton = new QPushButton(page_2);
+        addEventPushButton->setObjectName("addEventPushButton");
+        addEventPushButton->setGeometry(QRect(230, 480, 211, 24));
+        addEventBackPushButton = new QPushButton(page_2);
+        addEventBackPushButton->setObjectName("addEventBackPushButton");
+        addEventBackPushButton->setGeometry(QRect(0, 480, 201, 24));
+        stackedWidget->addWidget(page_2);
         jobLoadSpinBox = new QSpinBox(centralwidget);
         jobLoadSpinBox->setObjectName("jobLoadSpinBox");
         jobLoadSpinBox->setGeometry(QRect(10, 490, 91, 22));
@@ -336,7 +430,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
         coverLetterComboBox->setCurrentIndex(2);
         transcriptComboBox->setCurrentIndex(2);
         loginComboBox->setCurrentIndex(2);
@@ -380,6 +474,18 @@ public:
         addEventViewPushButton->setText(QCoreApplication::translate("MainWindow", "Add Event", nullptr));
         editJobDetailsPushButton->setText(QCoreApplication::translate("MainWindow", "Edit Job Details", nullptr));
         deleteJobPushButton->setText(QCoreApplication::translate("MainWindow", "Delete Job", nullptr));
+        addEventLabel->setText(QCoreApplication::translate("MainWindow", "Add Event", nullptr));
+        event0RadioButton->setText(QCoreApplication::translate("MainWindow", "Application Declined", nullptr));
+        event1RadioButton->setText(QCoreApplication::translate("MainWindow", "Offer Received", nullptr));
+        event2RadioButton->setText(QCoreApplication::translate("MainWindow", "Offer Accepted", nullptr));
+        event3RadioButton->setText(QCoreApplication::translate("MainWindow", "Offer Rejected", nullptr));
+        event4RadioButton->setText(QCoreApplication::translate("MainWindow", "Ask Interview", nullptr));
+        event5RadioButton->setText(QCoreApplication::translate("MainWindow", "Completed Interview", nullptr));
+        event6RadioButton->setText(QCoreApplication::translate("MainWindow", "Ask Assessment", nullptr));
+        event7RadioButton->setText(QCoreApplication::translate("MainWindow", "Completed Assessment", nullptr));
+        event8RadioButton->setText(QCoreApplication::translate("MainWindow", "Other", nullptr));
+        addEventPushButton->setText(QCoreApplication::translate("MainWindow", "Add Event", nullptr));
+        addEventBackPushButton->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         jobLoadPushButton->setText(QCoreApplication::translate("MainWindow", "Load Job", nullptr));
         addJobPushButton->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));
     } // retranslateUi

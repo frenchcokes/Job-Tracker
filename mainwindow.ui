@@ -43,7 +43,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -468,6 +468,139 @@
       </property>
       <property name="text">
        <string>Delete Job</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QLabel" name="addEventLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>439</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Add Event</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::MarkdownText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>40</y>
+        <width>441</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QDateEdit" name="eventDateEdit"/>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="event0RadioButton">
+         <property name="text">
+          <string>Application Declined</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="event1RadioButton">
+         <property name="text">
+          <string>Offer Received</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="event2RadioButton">
+         <property name="text">
+          <string>Offer Accepted</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="event3RadioButton">
+         <property name="text">
+          <string>Offer Rejected</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="event4RadioButton">
+         <property name="text">
+          <string>Ask Interview</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="event5RadioButton">
+         <property name="text">
+          <string>Completed Interview</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="event6RadioButton">
+         <property name="text">
+          <string>Ask Assessment</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="event7RadioButton">
+         <property name="text">
+          <string>Completed Assessment</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="event8RadioButton">
+         <property name="text">
+          <string>Other</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="eventOtherTextEdit"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="addEventPushButton">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>480</y>
+        <width>211</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Add Event</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addEventBackPushButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>480</y>
+        <width>201</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Back</string>
       </property>
      </widget>
     </widget>

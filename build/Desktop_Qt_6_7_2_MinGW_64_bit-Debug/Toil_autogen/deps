@@ -543,6 +543,8 @@ Toil_autogen/timestamp: \
 	C:/Users/sydne/Documents/Toil/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake \
 	C:/Users/sydne/Documents/Toil/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeSystem.cmake \
 	C:/Users/sydne/Documents/Toil/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/Toil_autogen/moc_predefs.h \
+	C:/Users/sydne/Documents/Toil/event.cpp \
+	C:/Users/sydne/Documents/Toil/event.h \
 	C:/Users/sydne/Documents/Toil/job.cpp \
 	C:/Users/sydne/Documents/Toil/job.h \
 	C:/Users/sydne/Documents/Toil/main.cpp \

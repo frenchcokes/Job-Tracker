@@ -32,6 +32,10 @@ private slots:
 
     void on_editJobDetailsPushButton_clicked();
 
+    void on_addEventViewPushButton_clicked();
+
+    void on_addEventPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

@@ -1,6 +1,27 @@
 #include "job.h"
 #include "QJsonObject"
 
+void Job::addEvent(int eventType, QDate eventDate)
+{
+    Event newEvent = Event(eventType, eventDate);
+    events.append(newEvent);
+}
+
+void Job::addEvent(QString otherText, QDate eventDate)
+{
+    Event newEvent = Event(otherText, eventDate);
+    events.append(newEvent);
+}
+
+void Job::debugPrintEvents()
+{
+    qDebug() << getCompanyName();
+    for(int i = 0; i < events.size(); i++)
+    {
+        qDebug() << events[i].getEventString();
+    }
+}
+
 QString Job::getJobTitle()
 {
     return jobTitle;

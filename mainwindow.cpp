@@ -86,6 +86,49 @@ void MainWindow::on_editJobDetailsPushButton_clicked()
     ui->stackedWidget->setCurrentIndex(0);
 }
 
+void MainWindow::on_addEventViewPushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->eventDateEdit->setDate(QDate::currentDate());
+
+    for(int i = 0; i < 9; i++)
+    {
+        QString widgetName = "event" + QString::number(i) + "RadioButton";
+        QRadioButton* widget = MainWindow::findChild<QRadioButton *>(widgetName);
+        widget->setChecked(false);
+    }
+    ui->eventOtherTextEdit->setPlainText("");
+}
+
+//EVENT ADD
+void MainWindow::on_addEventPushButton_clicked()
+{
+    int selectedIndex = -1;
+    for(int i = 0; i < 9; i++)
+    {
+        QString widgetName = "event" + QString::number(i) + "RadioButton";
+        QRadioButton* widget = MainWindow::findChild<QRadioButton *>(widgetName);
+        if(widget->isChecked() == true)
+        {
+            selectedIndex = i;
+            break;
+        }
+    }
+    if(selectedIndex != 8)
+    {
+        jobs[currentlyDisplayedJobIndex].addEvent(selectedIndex, ui->eventDateEdit->date());
+    }
+    else
+    {
+        jobs[currentlyDisplayedJobIndex].addEvent(ui->eventOtherTextEdit->toPlainText(), ui->eventDateEdit->date());
+    }
+}
+
+void MainWindow::on_addEventBackPushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
 //ALWAYS VISIBLE BUTTONS
 void MainWindow::on_addJobPushButton_clicked()
 {
@@ -177,3 +220,4 @@ void MainWindow::displayJobs(QList<Job> jobList)
     ui->jobDisplayPlainTextEdit->setPlainText(jobDisplayText);
     ui->jobLoadSpinBox->setMaximum(jobList.count() - 1);
 }
+

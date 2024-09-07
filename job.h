@@ -4,10 +4,13 @@
 #include <QMainWindow>
 #include <QDate>
 #include <QJsonObject>
+#include "Event.h"
 
 class Job
 {
 public:
+    QList<Event> events;
+
     QString jobTitle;
     QString companyName;
 
@@ -65,6 +68,10 @@ public:
 
     QJsonObject getSaveData();
     void loadSaveData(QJsonObject);
+
+    void addEvent(int eventType, QDate eventDate);
+    void addEvent(QString otherText, QDate eventDate);
+    void debugPrintEvents();
 };
 
 #endif // JOB_H
