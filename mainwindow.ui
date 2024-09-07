@@ -43,7 +43,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -308,7 +308,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Submit</string>
+       <string>Add Job</string>
       </property>
      </widget>
     </widget>
@@ -427,11 +427,14 @@
         <height>311</height>
        </rect>
       </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="addEventViewPushButton">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>280</x>
         <y>480</y>
         <width>151</width>
         <height>24</height>
@@ -444,7 +447,7 @@
      <widget class="QPushButton" name="editJobDetailsPushButton">
       <property name="geometry">
        <rect>
-        <x>280</x>
+        <x>120</x>
         <y>480</y>
         <width>151</width>
         <height>24</height>
@@ -452,6 +455,19 @@
       </property>
       <property name="text">
        <string>Edit Job Details</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="deleteJobPushButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>480</y>
+        <width>101</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Delete Job</string>
       </property>
      </widget>
     </widget>

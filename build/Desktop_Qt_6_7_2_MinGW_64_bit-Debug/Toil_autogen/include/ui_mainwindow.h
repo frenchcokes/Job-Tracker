@@ -77,6 +77,7 @@ public:
     QPlainTextEdit *JobEventsViewPlainTextEdit;
     QPushButton *addEventViewPushButton;
     QPushButton *editJobDetailsPushButton;
+    QPushButton *deleteJobPushButton;
     QSpinBox *jobLoadSpinBox;
     QPushButton *jobLoadPushButton;
     QPushButton *addJobPushButton;
@@ -308,12 +309,16 @@ public:
         JobEventsViewPlainTextEdit = new QPlainTextEdit(page_1);
         JobEventsViewPlainTextEdit->setObjectName("JobEventsViewPlainTextEdit");
         JobEventsViewPlainTextEdit->setGeometry(QRect(10, 160, 421, 311));
+        JobEventsViewPlainTextEdit->setReadOnly(true);
         addEventViewPushButton = new QPushButton(page_1);
         addEventViewPushButton->setObjectName("addEventViewPushButton");
-        addEventViewPushButton->setGeometry(QRect(10, 480, 151, 24));
+        addEventViewPushButton->setGeometry(QRect(280, 480, 151, 24));
         editJobDetailsPushButton = new QPushButton(page_1);
         editJobDetailsPushButton->setObjectName("editJobDetailsPushButton");
-        editJobDetailsPushButton->setGeometry(QRect(280, 480, 151, 24));
+        editJobDetailsPushButton->setGeometry(QRect(120, 480, 151, 24));
+        deleteJobPushButton = new QPushButton(page_1);
+        deleteJobPushButton->setObjectName("deleteJobPushButton");
+        deleteJobPushButton->setGeometry(QRect(10, 480, 101, 24));
         stackedWidget->addWidget(page_1);
         jobLoadSpinBox = new QSpinBox(centralwidget);
         jobLoadSpinBox->setObjectName("jobLoadSpinBox");
@@ -331,7 +336,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
         coverLetterComboBox->setCurrentIndex(2);
         transcriptComboBox->setCurrentIndex(2);
         loginComboBox->setCurrentIndex(2);
@@ -366,7 +371,7 @@ public:
         datePostedLabel->setText(QCoreApplication::translate("MainWindow", "Date Posted", nullptr));
         notesLabel->setText(QCoreApplication::translate("MainWindow", "Notes", nullptr));
         addJobLabel->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));
-        submitButton->setText(QCoreApplication::translate("MainWindow", "Submit", nullptr));
+        submitButton->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));
         JobTitleViewLabel->setText(QCoreApplication::translate("MainWindow", "Software Engineer Coop Summer", nullptr));
         companyNameViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         dateOfApplicationViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
@@ -374,6 +379,7 @@ public:
         notesViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         addEventViewPushButton->setText(QCoreApplication::translate("MainWindow", "Add Event", nullptr));
         editJobDetailsPushButton->setText(QCoreApplication::translate("MainWindow", "Edit Job Details", nullptr));
+        deleteJobPushButton->setText(QCoreApplication::translate("MainWindow", "Delete Job", nullptr));
         jobLoadPushButton->setText(QCoreApplication::translate("MainWindow", "Load Job", nullptr));
         addJobPushButton->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));
     } // retranslateUi

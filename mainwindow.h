@@ -28,11 +28,20 @@ private slots:
 
     void on_addJobPushButton_clicked();
 
+    void on_deleteJobPushButton_clicked();
+
+    void on_editJobDetailsPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     void displayJobs(QList<Job> jobList);
     void startup();
+
+    void deleteJob(int index);
+
+    bool viewJobAtIndex(int index);
+
     QList<Job> loadJobs();
     void saveJobs(QList<Job> jobList);
 };
