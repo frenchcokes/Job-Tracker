@@ -1,5 +1,6 @@
 #include "job.h"
 #include "QJsonObject"
+#include "QJsonArray"
 
 void Job::addEvent(int eventType, QDate eventDate)
 {
@@ -11,6 +12,16 @@ void Job::addEvent(QString otherText, QDate eventDate)
 {
     Event newEvent = Event(otherText, eventDate);
     events.append(newEvent);
+}
+
+QString Job::getEventsString()
+{
+    QString output = "";
+    for (int i = 0; i < events.size(); i++)
+    {
+        output = output + events[i].getEventString() + "\n";
+    }
+    return output;
 }
 
 void Job::debugPrintEvents()
@@ -39,14 +50,14 @@ QDate Job::getDateApplied()
 
 QString Job::getDateAppliedString()
 {
-    if(dateApplied.isNull() == true) { return "NULL"; }
-    if(dateApplied.isValid() == true)
+    QString op = dateApplied.toString();
+    if(op == "")
     {
         return "N/A";
     }
     else
     {
-        return dateApplied.toString();
+        return op;
     }
 }
 
@@ -72,14 +83,14 @@ QDate Job::getDatePosted()
 
 QString Job::getDatePostedString()
 {
-    if(datePosted.isNull() == true) { return "NULL"; }
-    if(datePosted.isValid() == true)
+    QString op = datePosted.toString();
+    if(op == "")
     {
         return "N/A";
     }
     else
     {
-        return datePosted.toString();
+        return op;
     }
 }
 
@@ -90,19 +101,25 @@ QString Job::getNotes()
 
 QJsonObject Job::getSaveData()
 {
-    QJsonObject saveData
+    QJsonObject json;
+    json["jobTitle"] = jobTitle;
+    json["companyName"] = companyName;
+    json["dateApplied"] = dateApplied.toString();
+    json["wasCoverLetter"] = wasCoverLetter;
+    json["wasLogin"] = wasLogin;
+    json["wasTranscript"] = wasTranscript;
+    json["datePosted"] = datePosted.toString();
+    json["notes"] = notes;
+
+    QJsonArray eventsSave;
+    for (int i = 0; i < events.size(); i++)
     {
-        {"jobTitle", jobTitle},
-        {"companyName", companyName},
-        {"dateApplied", dateApplied.toString()},
-        {"wasCoverLetter", wasCoverLetter},
-        {"wasLogin", wasLogin},
-        {"wasTranscript", wasTranscript},
-        {"datePosted", datePosted.toString()},
-        {"notes", notes}
-    };
-    return saveData;
-};
+        eventsSave.append(events[i].getSaveData());
+    }
+    json["events"] = eventsSave;
+
+    return json;
+}
 
 void Job::loadSaveData(QJsonObject data)
 {
@@ -114,4 +131,12 @@ void Job::loadSaveData(QJsonObject data)
     wasTranscript = data.value("wasTranscript").toString();
     datePosted = QDate::fromString(data.value("datePosted").toString());
     notes = data.value("notes").toString();
+
+    QJsonArray eventsData = data.value("events").toArray();
+    for (int i = 0; i < eventsData.size(); i ++)
+    {
+        Event newEvent = Event();
+        newEvent.loadSaveData(eventsData[i].toObject());
+        events.append(newEvent);
+    }
 }

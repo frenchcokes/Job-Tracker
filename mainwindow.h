@@ -36,6 +36,8 @@ private slots:
 
     void on_addEventPushButton_clicked();
 
+    void on_addEventBackPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

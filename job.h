@@ -71,6 +71,7 @@ public:
 
     void addEvent(int eventType, QDate eventDate);
     void addEvent(QString otherText, QDate eventDate);
+    QString getEventsString();
     void debugPrintEvents();
 };
 

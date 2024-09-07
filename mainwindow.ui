@@ -43,7 +43,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -213,7 +213,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QCheckBox" name="datePosedCheckBox">
+          <widget class="QCheckBox" name="datePostedCheckBox">
            <property name="text">
             <string>Include Date Posted?</string>
            </property>
@@ -434,9 +434,9 @@
      <widget class="QPushButton" name="addEventViewPushButton">
       <property name="geometry">
        <rect>
-        <x>280</x>
+        <x>360</x>
         <y>480</y>
-        <width>151</width>
+        <width>71</width>
         <height>24</height>
        </rect>
       </property>
@@ -447,9 +447,9 @@
      <widget class="QPushButton" name="editJobDetailsPushButton">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>260</x>
         <y>480</y>
-        <width>151</width>
+        <width>91</width>
         <height>24</height>
        </rect>
       </property>
@@ -462,12 +462,35 @@
        <rect>
         <x>10</x>
         <y>480</y>
-        <width>101</width>
+        <width>71</width>
         <height>24</height>
        </rect>
       </property>
       <property name="text">
        <string>Delete Job</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>480</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>480</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Edit Event</string>
       </property>
      </widget>
     </widget>

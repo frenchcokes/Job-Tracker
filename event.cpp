@@ -1,4 +1,5 @@
 #include "event.h"
+#include "QJsonObject"
 
 int Event::getEventType()
 {
@@ -60,4 +61,20 @@ QString Event::getEventString()
     {
         return Event::getEventTypeName() + "-" + getEventDate().toString() + "-" + getOtherText();
     }
+}
+
+QJsonObject Event::getSaveData()
+{
+    QJsonObject json;
+    json["eventType"] = eventType;
+    json["eventDate"] = eventDate.toString();
+    json["otherText"] = otherText;
+    return json;
+}
+
+void Event::loadSaveData(QJsonObject data)
+{
+    eventType = data.value("eventType").toInt();
+    eventDate = QDate::fromString(data.value("eventDate").toString());
+    otherText = data.value("otherText").toString();
 }

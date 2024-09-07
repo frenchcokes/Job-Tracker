@@ -122,6 +122,9 @@ void MainWindow::on_addEventPushButton_clicked()
     {
         jobs[currentlyDisplayedJobIndex].addEvent(ui->eventOtherTextEdit->toPlainText(), ui->eventDateEdit->date());
     }
+    MainWindow::saveJobs(jobs);
+    ui->stackedWidget->setCurrentIndex(1);
+    viewJobAtIndex(currentlyDisplayedJobIndex);
 }
 
 void MainWindow::on_addEventBackPushButton_clicked()
@@ -155,6 +158,8 @@ bool MainWindow::viewJobAtIndex(int index)
         ui->dateOfApplicationViewLabel->setText(loadJob.getDateApplied().toString());
         ui->otherViewLabel->setText("Cover Letter: " + loadJob.getWasCoverLetter() + " Transcript: " + loadJob.getWasTranscript() + " Date Posted: " + loadJob.getDatePostedString() + " Login: " + loadJob.getWasLogin());
         ui->notesViewLabel->setText(loadJob.getNotes());
+
+        ui->JobEventsViewPlainTextEdit->setPlainText(jobs[index].getEventsString());
         return true;
     }
     return false;

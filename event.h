@@ -12,6 +12,8 @@ public:
 
     QString otherText = "NULL";
 
+    Event() { };
+
     Event(int eventType, QDate eventDate)
     {
         this->eventType = eventType;
@@ -35,6 +37,10 @@ public:
     QString getOtherText();
 
     QString getEventString();
+
+
+    QJsonObject getSaveData();
+    void loadSaveData(QJsonObject theData);
 };
 
 #endif // EVENT_H
