@@ -52,12 +52,14 @@ public:
     QString getCompanyName();
 
     QDate getDateApplied();
+    QString getDateAppliedString();
 
     QString getWasCoverLetter();
     QString getWasLogin();
     QString getWasTranscript();
 
     QDate getDatePosted();
+    QString getDatePostedString();
 
     QString getNotes();
 

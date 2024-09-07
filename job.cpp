@@ -16,6 +16,19 @@ QDate Job::getDateApplied()
     return dateApplied;
 }
 
+QString Job::getDateAppliedString()
+{
+    if(dateApplied.isNull() == true) { return "NULL"; }
+    if(dateApplied.isValid() == true)
+    {
+        return "N/A";
+    }
+    else
+    {
+        return dateApplied.toString();
+    }
+}
+
 QString Job::getWasCoverLetter()
 {
     return wasCoverLetter;
@@ -34,6 +47,19 @@ QString Job::getWasTranscript()
 QDate Job::getDatePosted()
 {
     return datePosted;
+}
+
+QString Job::getDatePostedString()
+{
+    if(datePosted.isNull() == true) { return "NULL"; }
+    if(datePosted.isValid() == true)
+    {
+        return "N/A";
+    }
+    else
+    {
+        return datePosted.toString();
+    }
 }
 
 QString Job::getNotes()

@@ -51,6 +51,7 @@ void MainWindow::on_submitButton_clicked()
 
     QString notes = ui->notesEdit->text();
 
+
     if(jobTitle != "" && companyName != "")
     {
         if(isDatePostedEnabled == false)
@@ -109,7 +110,7 @@ bool MainWindow::viewJobAtIndex(int index)
         ui->JobTitleViewLabel->setText(loadJob.getJobTitle());
         ui->companyNameViewLabel->setText(loadJob.getCompanyName());
         ui->dateOfApplicationViewLabel->setText(loadJob.getDateApplied().toString());
-        ui->otherViewLabel->setText("Cover Letter: " + loadJob.getWasCoverLetter() + " Transcript: " + loadJob.getWasTranscript() + " Date Posted: " + loadJob.getDatePosted().toString() + " Login: " + loadJob.getWasLogin());
+        ui->otherViewLabel->setText("Cover Letter: " + loadJob.getWasCoverLetter() + " Transcript: " + loadJob.getWasTranscript() + " Date Posted: " + loadJob.getDatePostedString() + " Login: " + loadJob.getWasLogin());
         ui->notesViewLabel->setText(loadJob.getNotes());
         return true;
     }
@@ -171,7 +172,8 @@ void MainWindow::displayJobs(QList<Job> jobList)
     QString jobDisplayText = "";
     for (int i = 0; i < jobList.count(); i++)
     {
-        jobDisplayText = jobDisplayText + "[" + QString::number(i) + "] " + jobList[i].getJobTitle() + ", " + jobList[i].getCompanyName() + ", (" + jobList[i].getDateApplied().toString() + ")\n";
+        jobDisplayText = jobDisplayText + "[" + QString::number(i) + "] " + jobList[i].getJobTitle() + ", " + jobList[i].getCompanyName() + ", (" + jobList[i].getDateAppliedString() + ")\n";
     }
     ui->jobDisplayPlainTextEdit->setPlainText(jobDisplayText);
+    ui->jobLoadSpinBox->setMaximum(jobList.count() - 1);
 }
