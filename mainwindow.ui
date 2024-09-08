@@ -43,7 +43,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -308,7 +308,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Add Job</string>
+       <string>Save</string>
       </property>
      </widget>
     </widget>
@@ -447,7 +447,7 @@
      <widget class="QPushButton" name="editJobDetailsPushButton">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>90</x>
         <y>480</y>
         <width>91</width>
         <height>24</height>
@@ -470,20 +470,20 @@
        <string>Delete Job</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox">
+     <widget class="QSpinBox" name="editEventSpinBox">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>190</x>
         <y>480</y>
-        <width>42</width>
+        <width>81</width>
         <height>22</height>
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="editEventPushButton">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>280</x>
         <y>480</y>
         <width>75</width>
         <height>24</height>
@@ -610,7 +610,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Add Event</string>
+       <string>Save</string>
       </property>
      </widget>
      <widget class="QPushButton" name="addEventBackPushButton">

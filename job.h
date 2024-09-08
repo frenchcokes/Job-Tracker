@@ -63,6 +63,7 @@ public:
 
     QDate getDatePosted();
     QString getDatePostedString();
+    bool isEmptyDate();
 
     QString getNotes();
 
@@ -71,7 +72,11 @@ public:
 
     void addEvent(int eventType, QDate eventDate);
     void addEvent(QString otherText, QDate eventDate);
+    void replaceEventAtIndex(int index, Event newEvent);
     QString getEventsString();
+    QList<Event> getEvents();
+    void setEvents(QList<Event> theEvents);
+
     void debugPrintEvents();
 };
 

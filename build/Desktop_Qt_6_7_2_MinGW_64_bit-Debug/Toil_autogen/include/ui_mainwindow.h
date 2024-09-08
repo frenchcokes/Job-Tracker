@@ -79,8 +79,8 @@ public:
     QPushButton *addEventViewPushButton;
     QPushButton *editJobDetailsPushButton;
     QPushButton *deleteJobPushButton;
-    QSpinBox *spinBox;
-    QPushButton *pushButton;
+    QSpinBox *editEventSpinBox;
+    QPushButton *editEventPushButton;
     QWidget *page_2;
     QLabel *addEventLabel;
     QWidget *verticalLayoutWidget_2;
@@ -335,16 +335,16 @@ public:
         addEventViewPushButton->setGeometry(QRect(360, 480, 71, 24));
         editJobDetailsPushButton = new QPushButton(page_1);
         editJobDetailsPushButton->setObjectName("editJobDetailsPushButton");
-        editJobDetailsPushButton->setGeometry(QRect(260, 480, 91, 24));
+        editJobDetailsPushButton->setGeometry(QRect(90, 480, 91, 24));
         deleteJobPushButton = new QPushButton(page_1);
         deleteJobPushButton->setObjectName("deleteJobPushButton");
         deleteJobPushButton->setGeometry(QRect(10, 480, 71, 24));
-        spinBox = new QSpinBox(page_1);
-        spinBox->setObjectName("spinBox");
-        spinBox->setGeometry(QRect(100, 480, 42, 22));
-        pushButton = new QPushButton(page_1);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(160, 480, 75, 24));
+        editEventSpinBox = new QSpinBox(page_1);
+        editEventSpinBox->setObjectName("editEventSpinBox");
+        editEventSpinBox->setGeometry(QRect(190, 480, 81, 22));
+        editEventPushButton = new QPushButton(page_1);
+        editEventPushButton->setObjectName("editEventPushButton");
+        editEventPushButton->setGeometry(QRect(280, 480, 75, 24));
         stackedWidget->addWidget(page_1);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
@@ -438,7 +438,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
         coverLetterComboBox->setCurrentIndex(2);
         transcriptComboBox->setCurrentIndex(2);
         loginComboBox->setCurrentIndex(2);
@@ -473,7 +473,7 @@ public:
         datePostedLabel->setText(QCoreApplication::translate("MainWindow", "Date Posted", nullptr));
         notesLabel->setText(QCoreApplication::translate("MainWindow", "Notes", nullptr));
         addJobLabel->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));
-        submitButton->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));
+        submitButton->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         JobTitleViewLabel->setText(QCoreApplication::translate("MainWindow", "Software Engineer Coop Summer", nullptr));
         companyNameViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         dateOfApplicationViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
@@ -482,7 +482,7 @@ public:
         addEventViewPushButton->setText(QCoreApplication::translate("MainWindow", "Add Event", nullptr));
         editJobDetailsPushButton->setText(QCoreApplication::translate("MainWindow", "Edit Job Details", nullptr));
         deleteJobPushButton->setText(QCoreApplication::translate("MainWindow", "Delete Job", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Edit Event", nullptr));
+        editEventPushButton->setText(QCoreApplication::translate("MainWindow", "Edit Event", nullptr));
         addEventLabel->setText(QCoreApplication::translate("MainWindow", "Add Event", nullptr));
         event0RadioButton->setText(QCoreApplication::translate("MainWindow", "Application Declined", nullptr));
         event1RadioButton->setText(QCoreApplication::translate("MainWindow", "Offer Received", nullptr));
@@ -493,7 +493,7 @@ public:
         event6RadioButton->setText(QCoreApplication::translate("MainWindow", "Ask Assessment", nullptr));
         event7RadioButton->setText(QCoreApplication::translate("MainWindow", "Completed Assessment", nullptr));
         event8RadioButton->setText(QCoreApplication::translate("MainWindow", "Other", nullptr));
-        addEventPushButton->setText(QCoreApplication::translate("MainWindow", "Add Event", nullptr));
+        addEventPushButton->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         addEventBackPushButton->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         jobLoadPushButton->setText(QCoreApplication::translate("MainWindow", "Load Job", nullptr));
         addJobPushButton->setText(QCoreApplication::translate("MainWindow", "Add Job", nullptr));

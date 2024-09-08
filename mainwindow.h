@@ -38,6 +38,8 @@ private slots:
 
     void on_addEventBackPushButton_clicked();
 
+    void on_editEventPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -50,5 +52,7 @@ private:
 
     QList<Job> loadJobs();
     void saveJobs(QList<Job> jobList);
+
+    void changeWindow(int type);
 };
 #endif // MAINWINDOW_H

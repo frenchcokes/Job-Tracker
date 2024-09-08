@@ -10,6 +10,7 @@
 bool isDatePostedEnabled = false;
 QList<Job> jobs;
 int currentlyDisplayedJobIndex = -1;
+int eventIndex = -1;
 
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
@@ -60,7 +61,16 @@ void MainWindow::on_submitButton_clicked()
         }
 
         Job newJob = Job(jobTitle, companyName, dateApplied, wasCoverLetter, wasLogin, wasTranscript, datePosted, notes);
-        jobs.append(newJob);
+        if(currentlyDisplayedJobIndex == -1)
+        {
+            jobs.append(newJob);
+        }
+        else
+        {
+            newJob.setEvents(jobs[currentlyDisplayedJobIndex].getEvents());
+            jobs[currentlyDisplayedJobIndex] = newJob;
+            viewJobAtIndex(currentlyDisplayedJobIndex);
+        }
         MainWindow::saveJobs(jobs);
 
         ui->jobTitleLineEdit->setText("");
@@ -83,21 +93,17 @@ void MainWindow::on_jobLoadPushButton_clicked()
 
 void MainWindow::on_editJobDetailsPushButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    MainWindow::changeWindow(3);
 }
 
 void MainWindow::on_addEventViewPushButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
-    ui->eventDateEdit->setDate(QDate::currentDate());
+    MainWindow::changeWindow(2);
+}
 
-    for(int i = 0; i < 9; i++)
-    {
-        QString widgetName = "event" + QString::number(i) + "RadioButton";
-        QRadioButton* widget = MainWindow::findChild<QRadioButton *>(widgetName);
-        widget->setChecked(false);
-    }
-    ui->eventOtherTextEdit->setPlainText("");
+void MainWindow::on_editEventPushButton_clicked()
+{
+    MainWindow::changeWindow(5);
 }
 
 //EVENT ADD
@@ -114,17 +120,37 @@ void MainWindow::on_addEventPushButton_clicked()
             break;
         }
     }
-    if(selectedIndex != 8)
+    if(selectedIndex != -1)
     {
-        jobs[currentlyDisplayedJobIndex].addEvent(selectedIndex, ui->eventDateEdit->date());
+        if(eventIndex == -1)
+        {
+            if(selectedIndex != 8)
+            {
+                jobs[currentlyDisplayedJobIndex].addEvent(selectedIndex, ui->eventDateEdit->date());
+            }
+            else
+            {
+                jobs[currentlyDisplayedJobIndex].addEvent(ui->eventOtherTextEdit->toPlainText(), ui->eventDateEdit->date());
+            }
+        }
+        else
+        {
+            Event newEvent;
+            if(selectedIndex != 8)
+            {
+                newEvent = Event(selectedIndex, ui->eventDateEdit->date());
+            }
+            else
+            {
+                newEvent = Event(ui->eventOtherTextEdit->toPlainText(), ui->eventDateEdit->date());
+            }
+            jobs[currentlyDisplayedJobIndex].replaceEventAtIndex(eventIndex, newEvent);
+        }
+
+        MainWindow::saveJobs(jobs);
+        ui->stackedWidget->setCurrentIndex(1);
+        viewJobAtIndex(currentlyDisplayedJobIndex);
     }
-    else
-    {
-        jobs[currentlyDisplayedJobIndex].addEvent(ui->eventOtherTextEdit->toPlainText(), ui->eventDateEdit->date());
-    }
-    MainWindow::saveJobs(jobs);
-    ui->stackedWidget->setCurrentIndex(1);
-    viewJobAtIndex(currentlyDisplayedJobIndex);
 }
 
 void MainWindow::on_addEventBackPushButton_clicked()
@@ -135,8 +161,7 @@ void MainWindow::on_addEventBackPushButton_clicked()
 //ALWAYS VISIBLE BUTTONS
 void MainWindow::on_addJobPushButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    currentlyDisplayedJobIndex = -1;
+    MainWindow::changeWindow(0);
 }
 
 void MainWindow::on_deleteJobPushButton_clicked()
@@ -160,6 +185,8 @@ bool MainWindow::viewJobAtIndex(int index)
         ui->notesViewLabel->setText(loadJob.getNotes());
 
         ui->JobEventsViewPlainTextEdit->setPlainText(jobs[index].getEventsString());
+
+        ui->editEventSpinBox->setMaximum(loadJob.getEvents().size() - 1);
         return true;
     }
     return false;
@@ -169,8 +196,7 @@ void MainWindow::deleteJob(int index)
 {
     jobs.removeAt(index);
     MainWindow::saveJobs(jobs);
-    ui->stackedWidget->setCurrentIndex(0);
-    currentlyDisplayedJobIndex = -1;
+    MainWindow::changeWindow(0);
 }
 
 void MainWindow::saveJobs(QList<Job> jobList)
@@ -209,10 +235,7 @@ void MainWindow::startup()
     jobs = MainWindow::loadJobs();
     MainWindow::displayJobs(jobs);
 
-    ui->stackedWidget->setCurrentIndex(0);
-    ui->dateAppliedDateEdit->setDate(QDateTime::currentDateTime().date());
-    ui->datePostedDateEdit->setDate(QDateTime::currentDateTime().date());
-    on_datePostedCheckBox_toggled(false);
+    MainWindow::changeWindow(0);
 }
 
 void MainWindow::displayJobs(QList<Job> jobList)
@@ -224,5 +247,88 @@ void MainWindow::displayJobs(QList<Job> jobList)
     }
     ui->jobDisplayPlainTextEdit->setPlainText(jobDisplayText);
     ui->jobLoadSpinBox->setMaximum(jobList.count() - 1);
+}
+
+void MainWindow::changeWindow(int type)
+{
+    switch(type)
+    {
+        case 0: //Add Job
+            ui->stackedWidget->setCurrentIndex(0);
+
+            ui->addJobLabel->setText("Add Job");
+
+            ui->jobTitleLineEdit->setText("");
+            ui->companyNameLineEdit->setText("");
+            ui->dateAppliedDateEdit->setDate(QDateTime::currentDateTime().date());
+            ui->coverLetterComboBox->setCurrentText("N/A");
+            ui->transcriptComboBox->setCurrentText("N/A");
+            ui->loginComboBox->setCurrentText("N/A");
+
+            on_datePostedCheckBox_toggled(false);
+            ui->datePostedDateEdit->setDate(QDateTime::currentDateTime().date());
+
+            ui->notesEdit->setText("");
+            currentlyDisplayedJobIndex = -1;
+            break;
+        case 2: //Add Event
+            ui->addEventLabel->setText("Add Event");
+            ui->stackedWidget->setCurrentIndex(2);
+            ui->eventDateEdit->setDate(QDate::currentDate());
+
+            for(int i = 0; i < 9; i++)
+            {
+                QString widgetName = "event" + QString::number(i) + "RadioButton";
+                QRadioButton* widget = MainWindow::findChild<QRadioButton *>(widgetName);
+                widget->setChecked(false);
+            }
+            ui->eventOtherTextEdit->setPlainText("");
+            eventIndex = -1;
+            break;
+        case 5: //Edit Event
+            if(ui->editEventSpinBox->value() <= (jobs[currentlyDisplayedJobIndex].getEvents().count() - 1))
+            {
+                eventIndex = ui->editEventSpinBox->value();
+                ui->addEventLabel->setText("Edit Event");
+                Event theEvent = jobs[currentlyDisplayedJobIndex].getEvents()[eventIndex];
+
+                ui->stackedWidget->setCurrentIndex(2);
+                ui->eventDateEdit->setDate(theEvent.getEventDate());
+
+                QString widgetName = "event" + QString::number(theEvent.getEventType()) + "RadioButton";
+                QRadioButton* widget = MainWindow::findChild<QRadioButton *>(widgetName);
+                widget->setChecked(true);
+
+                ui->notesEdit->setText(theEvent.getOtherText());
+            }
+
+
+            break;
+        case 3: //Edit Job
+            ui->stackedWidget->setCurrentIndex(0);
+            Job editJob = jobs[currentlyDisplayedJobIndex];
+
+            ui->addJobLabel->setText("Edit Job");
+
+            ui->jobTitleLineEdit->setText(editJob.getJobTitle());
+            ui->companyNameLineEdit->setText(editJob.getCompanyName());
+            ui->dateAppliedDateEdit->setDate(editJob.getDateApplied());
+            ui->coverLetterComboBox->setCurrentText(editJob.getWasCoverLetter());
+            ui->transcriptComboBox->setCurrentText(editJob.getWasTranscript());
+            ui->loginComboBox->setCurrentText(editJob.getWasLogin());
+
+            if(editJob.isEmptyDate() == true)
+            {
+                on_datePostedCheckBox_toggled(false);
+            }
+            else
+            {
+                on_datePostedCheckBox_toggled(true);
+            }
+            ui->datePostedDateEdit->setDate(editJob.getDatePosted());
+
+            ui->notesEdit->setText(editJob.getNotes());
+            break;
+    }
 }
 

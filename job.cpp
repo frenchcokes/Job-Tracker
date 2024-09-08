@@ -14,6 +14,11 @@ void Job::addEvent(QString otherText, QDate eventDate)
     events.append(newEvent);
 }
 
+void Job::replaceEventAtIndex(int index, Event newEvent)
+{
+    events[index] = newEvent;
+}
+
 QString Job::getEventsString()
 {
     QString output = "";
@@ -22,6 +27,16 @@ QString Job::getEventsString()
         output = output + events[i].getEventString() + "\n";
     }
     return output;
+}
+
+QList<Event> Job::getEvents()
+{
+    return events;
+}
+
+void Job::setEvents(QList<Event> events)
+{
+    this->events = events;
 }
 
 void Job::debugPrintEvents()
@@ -91,6 +106,18 @@ QString Job::getDatePostedString()
     else
     {
         return op;
+    }
+}
+
+bool Job::isEmptyDate()
+{
+    if(Job::getDatePostedString() == "N/A")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 
