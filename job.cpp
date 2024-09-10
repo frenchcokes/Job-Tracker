@@ -24,7 +24,7 @@ QString Job::getEventsString()
     QString output = "";
     for (int i = 0; i < events.size(); i++)
     {
-        output = output + events[i].getEventString() + "\n";
+        output = output + "[" + QString::number(i) +  "] " + events[i].getEventString() + "\n";
     }
     return output;
 }
