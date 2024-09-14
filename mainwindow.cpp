@@ -186,7 +186,15 @@ bool MainWindow::viewJobAtIndex(int index)
 
         ui->JobEventsViewPlainTextEdit->setPlainText(jobs[index].getEventsString());
 
-        ui->editEventSpinBox->setMaximum(loadJob.getEvents().size() - 1);
+        if(loadJob.getEvents().size() != 0)
+        {
+            ui->editEventSpinBox->setMaximum(loadJob.getEvents().size() - 1);
+        }
+        else
+        {
+            ui->editEventSpinBox->setMaximum(0);
+        }
+
         return true;
     }
     return false;

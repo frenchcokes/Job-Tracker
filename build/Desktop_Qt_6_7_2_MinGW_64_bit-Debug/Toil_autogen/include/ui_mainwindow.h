@@ -438,7 +438,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
         coverLetterComboBox->setCurrentIndex(2);
         transcriptComboBox->setCurrentIndex(2);
         loginComboBox->setCurrentIndex(2);
