@@ -40,10 +40,13 @@ private slots:
 
     void on_editEventPushButton_clicked();
 
+    void on_searchLineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 
     void displayJobs(QList<Job> jobList);
+
     void startup();
 
     void deleteJob(int index);

@@ -101,6 +101,7 @@ public:
     QSpinBox *jobLoadSpinBox;
     QPushButton *jobLoadPushButton;
     QPushButton *addJobPushButton;
+    QLineEdit *searchLineEdit;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -113,7 +114,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         jobDisplayPlainTextEdit = new QPlainTextEdit(centralwidget);
         jobDisplayPlainTextEdit->setObjectName("jobDisplayPlainTextEdit");
-        jobDisplayPlainTextEdit->setGeometry(QRect(10, 40, 251, 441));
+        jobDisplayPlainTextEdit->setGeometry(QRect(10, 70, 251, 411));
         jobDisplayPlainTextEdit->setReadOnly(true);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
@@ -431,6 +432,9 @@ public:
         addJobPushButton = new QPushButton(centralwidget);
         addJobPushButton->setObjectName("addJobPushButton");
         addJobPushButton->setGeometry(QRect(10, 10, 251, 24));
+        searchLineEdit = new QLineEdit(centralwidget);
+        searchLineEdit->setObjectName("searchLineEdit");
+        searchLineEdit->setGeometry(QRect(10, 40, 251, 22));
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -438,7 +442,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
         coverLetterComboBox->setCurrentIndex(2);
         transcriptComboBox->setCurrentIndex(2);
         loginComboBox->setCurrentIndex(2);

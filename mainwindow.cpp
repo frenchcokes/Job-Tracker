@@ -169,6 +169,29 @@ void MainWindow::on_deleteJobPushButton_clicked()
     MainWindow::deleteJob(currentlyDisplayedJobIndex);
 }
 
+void MainWindow::on_searchLineEdit_textChanged(const QString &arg1)
+{
+    QList<Job> jobsToDisplay;
+    QString check = arg1.toLower();
+    for(int i = 0; i < jobs.size(); i++)
+    {
+        if(jobs[i].getCompanyName().toLower().contains(check) == 1)
+        {
+            jobsToDisplay.append(jobs[i]);
+        }
+        else if(jobs[i].getJobTitle().toLower().contains(check) == 1)
+        {
+            jobsToDisplay.append(jobs[i]);
+        }
+        else if(jobs[i].getDateAppliedString().toLower().contains(check) == 1)
+        {
+            jobsToDisplay.append(jobs[i]);
+        }
+    }
+
+    displayJobs(jobsToDisplay);
+}
+
 //HELPERS
 bool MainWindow::viewJobAtIndex(int index)
 {
