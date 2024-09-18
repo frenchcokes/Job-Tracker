@@ -74,13 +74,13 @@ public:
     QLabel *companyNameViewLabel;
     QLabel *dateOfApplicationViewLabel;
     QLabel *otherViewLabel;
-    QLabel *notesViewLabel;
     QPlainTextEdit *JobEventsViewPlainTextEdit;
     QPushButton *addEventViewPushButton;
     QPushButton *editJobDetailsPushButton;
     QPushButton *deleteJobPushButton;
     QSpinBox *editEventSpinBox;
     QPushButton *editEventPushButton;
+    QPlainTextEdit *notesViewLabel;
     QWidget *page_2;
     QLabel *addEventLabel;
     QWidget *verticalLayoutWidget_2;
@@ -322,14 +322,9 @@ public:
         font4.setPointSize(12);
         otherViewLabel->setFont(font4);
         otherViewLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
-        notesViewLabel = new QLabel(page_1);
-        notesViewLabel->setObjectName("notesViewLabel");
-        notesViewLabel->setGeometry(QRect(0, 130, 441, 31));
-        notesViewLabel->setFont(font4);
-        notesViewLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
         JobEventsViewPlainTextEdit = new QPlainTextEdit(page_1);
         JobEventsViewPlainTextEdit->setObjectName("JobEventsViewPlainTextEdit");
-        JobEventsViewPlainTextEdit->setGeometry(QRect(10, 160, 421, 311));
+        JobEventsViewPlainTextEdit->setGeometry(QRect(10, 230, 421, 241));
         JobEventsViewPlainTextEdit->setReadOnly(true);
         addEventViewPushButton = new QPushButton(page_1);
         addEventViewPushButton->setObjectName("addEventViewPushButton");
@@ -346,6 +341,9 @@ public:
         editEventPushButton = new QPushButton(page_1);
         editEventPushButton->setObjectName("editEventPushButton");
         editEventPushButton->setGeometry(QRect(280, 480, 75, 24));
+        notesViewLabel = new QPlainTextEdit(page_1);
+        notesViewLabel->setObjectName("notesViewLabel");
+        notesViewLabel->setGeometry(QRect(10, 130, 421, 91));
         stackedWidget->addWidget(page_1);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
@@ -442,7 +440,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
         coverLetterComboBox->setCurrentIndex(2);
         transcriptComboBox->setCurrentIndex(2);
         loginComboBox->setCurrentIndex(2);
@@ -482,7 +480,6 @@ public:
         companyNameViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         dateOfApplicationViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         otherViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        notesViewLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         addEventViewPushButton->setText(QCoreApplication::translate("MainWindow", "Add Event", nullptr));
         editJobDetailsPushButton->setText(QCoreApplication::translate("MainWindow", "Edit Job Details", nullptr));
         deleteJobPushButton->setText(QCoreApplication::translate("MainWindow", "Delete Job", nullptr));

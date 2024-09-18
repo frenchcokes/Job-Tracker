@@ -205,7 +205,7 @@ bool MainWindow::viewJobAtIndex(int index)
         ui->companyNameViewLabel->setText(loadJob.getCompanyName());
         ui->dateOfApplicationViewLabel->setText(loadJob.getDateApplied().toString());
         ui->otherViewLabel->setText("Cover Letter: " + loadJob.getWasCoverLetter() + " Transcript: " + loadJob.getWasTranscript() + " Date Posted: " + loadJob.getDatePostedString() + " Login: " + loadJob.getWasLogin());
-        ui->notesViewLabel->setText(loadJob.getNotes());
+        ui->notesViewLabel->setPlainText(loadJob.getNotes());
 
         ui->JobEventsViewPlainTextEdit->setPlainText(jobs[index].getEventsString());
 
