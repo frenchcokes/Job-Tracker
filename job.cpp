@@ -65,7 +65,7 @@ QDate Job::getDateApplied()
 
 QString Job::getDateAppliedString()
 {
-    QString op = dateApplied.toString();
+    QString op = dateApplied.toString("d MMM yyyy");
     if(op == "")
     {
         return "N/A";
