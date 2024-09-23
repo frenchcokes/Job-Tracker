@@ -61,6 +61,8 @@ public:
     QString getWasLogin();
     QString getWasTranscript();
 
+    QString getStatusString();
+
     QDate getDatePosted();
     QString getDatePostedString();
     bool isEmptyDate();

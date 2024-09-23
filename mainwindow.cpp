@@ -274,7 +274,7 @@ void MainWindow::displayJobs(QList<Job> jobList)
     QString jobDisplayText = "";
     for (int i = 0; i < jobList.count(); i++)
     {
-        jobDisplayText = jobDisplayText + "[" + QString::number(i) + "] " + jobList[i].getJobTitle() + ", " + jobList[i].getCompanyName() + ", [" + jobList[i].getDateAppliedString() + "]\n";
+        jobDisplayText = jobDisplayText + "[" + QString::number(i) + "] " + jobList[i].getJobTitle() + ", " + jobList[i].getCompanyName() + ", [" + jobList[i].getDateAppliedString() + "] [" + jobList[i].getStatusString() + "]\n";
     }
     ui->jobDisplayPlainTextEdit->setPlainText(jobDisplayText);
     ui->jobLoadSpinBox->setMaximum(jobList.count() - 1);

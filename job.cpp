@@ -29,6 +29,44 @@ QString Job::getEventsString()
     return output;
 }
 
+QString Job::getStatusString()
+{
+    for(int i = events.size() - 1; 0 <= i; i--)
+    {
+        int eventType = events[i].getEventType();
+        switch(eventType)
+        {
+            case 0:
+                return "App. Rej.";
+                break;
+            case 1:
+                return "Off. Rec.";
+                break;
+            case 2:
+                return "Off. Acc.";
+                break;
+            case 3:
+                return "Off. Rej.";
+                break;
+            case 4:
+                return "Ask Int.";
+                break;
+            case 5:
+                return "Did Int.";
+                break;
+            case 6:
+                return "Ask Test";
+                break;
+            case 7:
+                return "Did Test";
+                break;
+            case 8:
+                break;
+        }
+    }
+    return "";
+}
+
 QList<Event> Job::getEvents()
 {
     return events;
