@@ -19,11 +19,21 @@ MainWindow::MainWindow(QWidget *parent):
     ui->setupUi(this);
 
     startup();
+
+    changeTab(0);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::changeTab(int type) {
+    switch(type)
+    {
+        case 0:
+            break;
+    }
 }
 
 //JOB ADD

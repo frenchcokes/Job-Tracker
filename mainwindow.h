@@ -45,6 +45,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    void changeTab(int type);
+
     void displayJobs(QList<Job> jobList);
 
     void startup();
